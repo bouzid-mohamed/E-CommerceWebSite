@@ -1,0 +1,4 @@
+tn\esprit\spring\ECommerceApplication.class
+tn\esprit\spring\controller\ProductController.class
+tn\esprit\spring\model\Product.class
+tn\esprit\spring\repository\ProductRepository.class
