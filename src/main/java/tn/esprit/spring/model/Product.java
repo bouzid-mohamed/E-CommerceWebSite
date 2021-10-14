@@ -2,31 +2,36 @@ package tn.esprit.spring.model;
 
 import java.sql.Date;
 
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class Product {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-
 	@Column(name = "name")
 	private String name;
 	@Column(name = "description")
 	private String description;
 	@Column(name = "price")
 	private float price;
-	@Column(name = "image")
-	private int image;
 	@Column(name = "createdAt")
 	private Date createdAt;
 	@Column(name = "deletedAt")
-	private Date deletedAt; 
-	
-	
-	
+	private Date deletedAt;
+	@ManyToOne(cascade = CascadeType.ALL)
+	Category category;
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 	public String getName() {
 		return name;
@@ -52,14 +57,6 @@ public class Product {
 		this.price = price;
 	}
 
-	public int getImage() {
-		return image;
-	}
-
-	public void setImage(int image) {
-		this.image = image;
-	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -80,41 +77,35 @@ public class Product {
 		this.id = id;
 	}
 
-
-	
 	public long getId() {
 		return id;
 	}
 
-	public Product( String name, String description, float price, int image, Date createdAt, Date deletedAt) {
+	public Product(String name, String description, float price, Date createdAt, Date deletedAt, Category category) {
 		super();
-	
+
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		this.image = image;
+
 		this.createdAt = createdAt;
 		this.deletedAt = deletedAt;
+		this.category = category;
 	}
-	
+
+	public Product(long id) {
+		super();
+		this.id = id;
+	}
+
 	public Product() {
-		
+
 	}
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", image="
-				+ image + ", createdAt=" + createdAt + ", deletedAt=" + deletedAt + "]";
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
+				+ ",createdAt=" + createdAt + ", deletedAt=" + deletedAt + "]";
 	}
-	
-	
-	
-
-
-
-
-
-
-
 
 }
