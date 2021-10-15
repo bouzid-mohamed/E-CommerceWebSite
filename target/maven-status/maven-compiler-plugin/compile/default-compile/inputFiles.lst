@@ -1,4 +1,13 @@
-C:\Users\mohamed\Documents\workspace-sts-3.8.4.RELEASE\E-Commerce\src\main\java\tn\esprit\spring\controller\ProductController.java
-C:\Users\mohamed\Documents\workspace-sts-3.8.4.RELEASE\E-Commerce\src\main\java\tn\esprit\spring\ECommerceApplication.java
-C:\Users\mohamed\Documents\workspace-sts-3.8.4.RELEASE\E-Commerce\src\main\java\tn\esprit\spring\model\Product.java
-C:\Users\mohamed\Documents\workspace-sts-3.8.4.RELEASE\E-Commerce\src\main\java\tn\esprit\spring\repository\ProductRepository.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\controller\CategoryController.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\controller\ImageController.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\model\Category.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\ECommerceApplication.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\model\SubCat.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\controller\SubCatController.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\repository\ImageRepository.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\repository\ProductRepository.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\model\Product.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\model\Image.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\repository\SubCatRepository.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\controller\ProductController.java
+C:\Users\Bayrem\Documents\GitHub\E-CommerceWebSite\src\main\java\tn\esprit\spring\repository\CategoryRepository.java
