@@ -114,10 +114,9 @@ public class User implements Serializable {
 		this.roles = roles;
 	}
 
-	public User(long id, String firstname, String lastname, String email, String password, String avatar,
+	public User(String firstname, String lastname, String email, String password, String avatar,
 			String activationtoken, String resettoken, Collection<Role> roles) {
 		super();
-		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
