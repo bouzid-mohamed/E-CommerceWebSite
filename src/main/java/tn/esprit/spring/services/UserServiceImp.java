@@ -1,6 +1,7 @@
 package tn.esprit.spring.services;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,16 +15,23 @@ import tn.esprit.spring.repository.RoleRepo;
 import tn.esprit.spring.repository.UserRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Service
 @Transactional
-public class UserServiceImp implements UserService {
+public class UserServiceImp implements UserService , UserDetailsService {
 	@Autowired
 	UserRepo userRepo ;
 	@Autowired
 	RoleRepo rolerepo ;
 	
 	public User SaveUser(User user) {
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+		System.out.println(user.getPassword());
 		return userRepo.save(user);
 	}
 
@@ -45,8 +53,8 @@ public class UserServiceImp implements UserService {
 	}
 	public User UpdateUser(User user,Optional<User> user9dim) {
 			User user9dimm = user9dim.get();
-			if(user.getEmail() != null && !user.getEmail().isEmpty())
-				user9dimm.setEmail(user.getEmail());
+			if(user.getUsername() != null && !user.getUsername().isEmpty())
+				user9dimm.setUsername(user.getUsername());
 			if(user.getFirstname() != null && !user.getFirstname().isEmpty())
 				user9dimm.setFirstname(user.getFirstname());
 			if(user.getAvatar() != null && !user.getAvatar().isEmpty())
@@ -68,4 +76,16 @@ public class UserServiceImp implements UserService {
 	        userRepo.findById(user.getId());
 	        return this.SaveUser(user);
 	    }
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println("Username :" + username);
+		User user = userRepo.findByUsername(username).get();
+		System.out.println("user :" + user);
+		Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+		user.getRoles().forEach(role -> {
+			authorities.add(new SimpleGrantedAuthority(role.getName()));
+		});
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+	}
 }

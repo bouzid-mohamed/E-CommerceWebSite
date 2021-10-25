@@ -20,8 +20,8 @@ public class User implements Serializable {
 	@Column(name = "lastname")
 	private String lastname;
 	
-	@Column(name = "email")
-	private String email;
+	@Column(name = "username")
+	private String username;
 	
 	@Column(name = "password")
 	private String password;
@@ -66,12 +66,12 @@ public class User implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -114,12 +114,12 @@ public class User implements Serializable {
 		this.roles = roles;
 	}
 
-	public User(String firstname, String lastname, String email, String password, String avatar,
+	public User(String firstname, String lastname, String username, String password, String avatar,
 			String activationtoken, String resettoken, Collection<Role> roles) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.email = email;
+		this.username = username;
 		this.password = password;
 		this.avatar = avatar;
 		this.activationtoken = activationtoken;

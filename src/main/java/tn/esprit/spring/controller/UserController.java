@@ -14,13 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.esprit.spring.model.Category;
-import tn.esprit.spring.model.Product;
 import tn.esprit.spring.model.Role;
 import tn.esprit.spring.model.User;
+import tn.esprit.spring.repository.UserRepo;
 import tn.esprit.spring.services.UserService;
 
 
@@ -31,6 +29,7 @@ public class UserController {
     @Autowired
 	UserService userService ;
     
+    UserRepo userrepo ;
 	@GetMapping("/all")
 	public ResponseEntity<List<User>>getUsers(){
 		return ResponseEntity.ok().body(userService.GetUsers()) ;
@@ -92,5 +91,7 @@ public class UserController {
 		userService.AddRoleToUser(idu, idr);
 		return ResponseEntity.ok().build() ;
 	}
+	
+
 
 }
